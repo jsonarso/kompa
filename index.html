@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KOMPA · Muy pronto</title>
+  <meta name="description" content="KOMPA, pulseras modulares con placas coleccionables para atletas. Crea tu propia historia. Muy pronto en Costa Rica.">
+  <meta name="theme-color" content="#07111E">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KOMPA · Muy pronto">
+  <meta property="og:description" content="Pulseras modulares con placas coleccionables. Crea tu propia historia.">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:locale" content="es_CR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="assets/fonts/montserrat-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* Montserrat (tipografía oficial) — autoalojada */
+    @font-face{font-family:"Montserrat";font-weight:500;font-display:swap;src:url(assets/fonts/montserrat-latin-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:"Montserrat";font-weight:700;font-display:swap;src:url(assets/fonts/montserrat-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:"Montserrat";font-weight:800;font-display:swap;src:url(assets/fonts/montserrat-latin-800.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:"Montserrat";font-weight:500;font-display:swap;src:url(assets/fonts/montserrat-latin-ext-500.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:"Montserrat";font-weight:700;font-display:swap;src:url(assets/fonts/montserrat-latin-ext-700.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+    :root{
+      /* Paleta base */
+      --ink:#07111E; --white:#FFFFFF; --sand:#F4F0E9; --metal:#B5B8B7;
+      /* Colores de colección */
+      --yellow:#FFD100; --turquoise:#38CBC4; --pink:#F24E96; --green:#2B7A58; --orange:#F0652D; --blue:#4170BE;
+      --ink-2:#0C1B2C; --line:rgba(255,255,255,.14);
+      --font:"Montserrat","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --gutter:clamp(20px,5vw,72px);
+    }
+    *{box-sizing:border-box;margin:0}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      min-height:100vh;min-height:100dvh;background:var(--ink);color:var(--white);
+      font-family:var(--font);font-weight:500;line-height:1.55;
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    }
+    a{color:inherit}
+    :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+
+    .page{
+      min-height:100vh;min-height:100dvh;display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+      padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
+    }
+
+    /* ---------- Columna de contenido ---------- */
+    .content{
+      display:flex;flex-direction:column;justify-content:space-between;gap:40px;
+      padding:clamp(28px,4.5vw,56px) var(--gutter) clamp(24px,3vw,40px);
+      position:relative;z-index:2;
+    }
+    .eyebrow{display:flex;align-items:center;gap:14px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:28px;height:3px;background:var(--yellow);border-radius:2px}
+
+    .main{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(22px,3vh,34px);padding:clamp(8px,3vh,32px) 0}
+    .logo{width:clamp(190px,24vw,300px);height:auto;display:block}
+
+    h1{
+      font-weight:800;line-height:.98;letter-spacing:-.01em;text-transform:uppercase;
+      font-size:clamp(2.9rem,7.4vw,6.4rem);
+    }
+    h1 .accent{color:var(--yellow)}
+    .lead{max-width:34em;font-size:clamp(1rem,1.35vw,1.15rem);color:rgba(255,255,255,.82)}
+    .lead strong{color:var(--white);font-weight:700}
+
+    /* Ruta + puntos (sistema gráfico de la marca) */
+    .route{position:relative;width:min(420px,100%);height:28px;margin:4px 0 2px}
+    .route .line{position:absolute;left:6px;right:6px;top:50%;height:2px;background:rgba(255,255,255,.22);transform:translateY(-50%);border-radius:2px;overflow:hidden}
+    .route .line::after{content:"";position:absolute;inset:0;background:var(--yellow);transform:scaleX(0);transform-origin:left;animation:draw 2.4s .4s cubic-bezier(.6,0,.2,1) forwards}
+    .route i{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;transform:translate(-50%,-50%) scale(0);animation:pop .5s cubic-bezier(.3,1.6,.5,1) forwards}
+    .route i:nth-child(2){left:2%;background:var(--yellow);animation-delay:.3s}
+    .route i:nth-child(3){left:27%;background:var(--turquoise);animation-delay:.85s;top:30%}
+    .route i:nth-child(4){left:50%;background:var(--pink);animation-delay:1.3s;top:70%}
+    .route i:nth-child(5){left:74%;background:var(--green);animation-delay:1.75s;top:35%}
+    .route i:nth-child(6){left:98%;background:var(--orange);animation-delay:2.2s}
+    @keyframes draw{to{transform:scaleX(1)}}
+    @keyframes pop{to{transform:translate(-50%,-50%) scale(1)}}
+
+    .actions{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border-radius:12px;
+      font:inherit;font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+      background:var(--yellow);color:var(--ink);transition:transform .2s ease,background .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px);background:#ffdf33}
+    .btn svg{width:18px;height:18px}
+    .btn.ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px var(--line)}
+    .btn.ghost:hover{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 2px var(--yellow)}
+
+    /* Líneas de colección */
+    .lines{display:flex;flex-wrap:wrap;gap:10px;padding:0}
+    .lines li{list-style:none;display:flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;background:var(--ink-2);border:1px solid var(--line);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .lines li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+    .lines ul{display:contents}
+
+    footer{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--line);font-size:.72rem;letter-spacing:.08em;color:rgba(255,255,255,.62)}
+    .social{display:flex;gap:22px;flex-wrap:wrap}
+    .social a{text-decoration:none;font-weight:700;color:rgba(255,255,255,.85);transition:color .2s}
+    .social a:hover{color:var(--yellow)}
+
+    /* ---------- Columna de imagen ---------- */
+    .visual{position:relative;padding:clamp(16px,2.5vw,32px) clamp(16px,2.5vw,32px) clamp(16px,2.5vw,32px) 0}
+    .frame{position:relative;height:100%;min-height:420px;border-radius:44px;overflow:hidden;background:#0a1626}
+    .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 72%;transform:scale(1.04);animation:settle 2.4s ease-out forwards}
+    @keyframes settle{to{transform:scale(1)}}
+    .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,30,.55) 0%,transparent 35%)}
+    .frame figcaption{position:absolute;z-index:2;left:clamp(20px,3vw,36px);right:clamp(20px,3vw,36px);top:clamp(22px,3vw,38px);
+      font-weight:800;text-transform:uppercase;line-height:1.15;font-size:clamp(1.05rem,2vw,1.6rem);text-align:left}
+    .frame figcaption span{display:block}
+    .frame figcaption span:last-child{color:var(--yellow)}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px){
+      .page{grid-template-columns:1fr}
+      .visual{order:-1;padding:16px 16px 0}
+      .frame{min-height:0;height:clamp(240px,46vh,380px);border-radius:32px}
+      .content{padding-top:30px}
+      .main{padding-top:0}
+    }
+    @media (max-width:420px){
+      .btn{width:100%;justify-content:center}
+      footer{flex-direction:column;align-items:flex-start}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important}
+      .route .line::after{transform:scaleX(1)}
+      .route i{transform:translate(-50%,-50%) scale(1)}
+      .frame img{transform:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="content">
+      <p class="eyebrow">Costa Rica · 2026</p>
+
+      <div class="main">
+        <img class="logo" src="assets/kompa-logo-blanco.png" width="741" height="522" alt="KOMPA — Crea tu propia historia">
+
+        <h1>Muy <span class="accent">pronto.</span></h1>
+
+        <div class="route" aria-hidden="true">
+          <span class="line"></span><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <p class="lead">
+          <strong>No vendemos pulseras. Vendemos historias.</strong>
+          Estamos preparando las pulseras modulares con placas coleccionables para que cada meta, cada ruta y cada carrera se lleve puesta.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="mailto:somoskompa@gmail.com?subject=Av%C3%ADsenme%20cuando%20KOMPA%20llegue&body=Hola%2C%20quiero%20enterarme%20cuando%20KOMPA%20est%C3%A9%20disponible.">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+            Avisame cuando llegue
+          </a>
+          <a class="btn ghost" href="https://www.instagram.com/kompa.cr" target="_blank" rel="noopener">Seguinos en Instagram</a>
+        </div>
+
+        <ul class="lines" aria-label="Líneas de colección">
+          <li style="--c:var(--yellow)">Sport</li>
+          <li style="--c:var(--turquoise)">Travel</li>
+          <li style="--c:var(--pink)">Corporate</li>
+          <li style="--c:var(--green)">Custom</li>
+        </ul>
+      </div>
+
+      <footer>
+        <span>Cada placa cuenta una historia.</span>
+        <nav class="social" aria-label="Redes sociales">
+          <a href="https://www.instagram.com/kompa.cr" target="_blank" rel="noopener">@KOMPA.CR</a>
+          <a href="https://www.facebook.com/KOMPA.cr" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:somoskompa@gmail.com">somoskompa@gmail.com</a>
+        </nav>
+      </footer>
+    </main>
+
+    <aside class="visual">
+      <figure class="frame">
+        <img src="assets/hero.webp" width="500" height="2000" alt="Muñeca con una pulsera KOMPA amarilla y placas grabadas, sobre el símbolo de la marca.">
+        <figcaption><span>Una meta.</span><span>Una placa.</span><span>Una historia.</span></figcaption>
+      </figure>
+    </aside>
+  </div>
+</body>
+</html>
