@@ -3,12 +3,13 @@
 Página "Muy pronto" de KOMPA (pulseras modulares coleccionables, Costa Rica). Sitio estático de una sola página, sin build.
 
 - Tipografía: Montserrat (autoalojada). Colores y logo según el Libro de Marca 2026.
-- Archivos: `index.html`, `assets/`, `_headers`.
+- Archivos: `public/index.html`, `public/assets/`, `public/_headers`, `wrangler.jsonc`.
 
-## Despliegue en Cloudflare Pages
-1. Workers & Pages → Create → Pages → Connect to Git → elegir este repositorio.
-2. Framework preset: **None**. Build command: *(vacío)*. Build output directory: `/`.
-3. Save and Deploy.
+## Despliegue en Cloudflare (Workers con assets estáticos)
+El sitio vive en `public/` y `wrangler.jsonc` apunta a esa carpeta.
+1. Workers & Pages → Create → conectar este repositorio.
+2. Project name: `kompa`. Build command: *(vacío)*. Deploy command: `npx wrangler deploy`.
+3. Deploy. Cada push a `main` redespliega.
 
 ## Editar contactos
-Enlaces de Instagram, Facebook y correo en `index.html` (según el libro de marca: @KOMPA.CR, KOMPA.cr, somoskompa@gmail.com).
+Enlaces de Instagram, Facebook y correo en `public/index.html` (según el libro de marca: @KOMPA.CR, KOMPA.cr, somoskompa@gmail.com).
