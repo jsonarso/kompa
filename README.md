@@ -1,6 +1,6 @@
 # KOMPA · Coming Soon
 
-Página "Muy pronto" de KOMPA (pulseras modulares coleccionables, Costa Rica). Sitio estático de una sola página, sin build.
+Página "Muy pronto" de KOMPA (brazaletes modulares coleccionables, Costa Rica). Sitio estático de una sola página, sin build.
 
 - Tipografía: Montserrat (autoalojada). Colores y logo según el Libro de Marca 2026.
 - Archivos: `public/index.html`, `public/assets/`, `public/_headers`, `wrangler.jsonc`.
@@ -12,4 +12,4 @@ El sitio vive en `public/` y `wrangler.jsonc` apunta a esa carpeta.
 3. Deploy. Cada push a `main` redespliega.
 
 ## Editar contactos
-Enlaces de Instagram, Facebook y correo en `public/index.html` (según el libro de marca: @KOMPA.CR, KOMPA.cr, somoskompa@gmail.com).
+Enlaces de Instagram en `public/index.html` (según el libro de marca: @KOMPA.CR, KOMPA.cr, somoskompa@gmail.com).
