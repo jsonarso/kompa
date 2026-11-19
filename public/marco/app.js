@@ -40,7 +40,6 @@
   const countdownOverlay = document.getElementById('countdownOverlay');
   const countdownNumber = document.getElementById('countdownNumber');
   const liveBadge = document.getElementById('liveBadge');
-  const gestureHint = document.getElementById('gestureHint');
   const cameraPromptOverlay = document.getElementById('cameraPromptOverlay');
   const btnGrantCamera = document.getElementById('btnGrantCamera');
   const promptGalleryInput = document.getElementById('promptGalleryInput');
@@ -406,11 +405,6 @@
     cameraControls.classList.add('hidden');
     capturedControls.classList.remove('hidden');
     editingTools.classList.remove('hidden');
-    
-    // Ocultar hint tras 3 segundos
-    setTimeout(() => {
-      gestureHint.style.opacity = '0';
-    }, 3500);
   }
 
   // ==========================================================================
@@ -536,7 +530,6 @@
     isDragging = true;
     dragStartX = e.clientX;
     dragStartY = e.clientY;
-    gestureHint.style.opacity = '0';
   });
 
   window.addEventListener('mousemove', (e) => {
@@ -560,7 +553,6 @@
   // Gestos táctiles para dispositivos móviles
   canvas.addEventListener('touchstart', (e) => {
     if (isCameraActive) return;
-    gestureHint.style.opacity = '0';
 
     if (e.touches.length === 1) {
       isDragging = true;
@@ -954,20 +946,27 @@
     drawKompaHeaderLogo(c, 540, 120, 190);
 
     // Footer minimal
+    // 1. Slogan minimal
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.white;
     c.font = '800 22px Montserrat';
     c.letterSpacing = '0.25em';
-    c.fillText('CREA TU PROPIA HISTORIA', 540, 1665);
+    c.fillText('CREA TU PROPIA HISTORIA', 540, 1605);
 
+    // 2. Llamado a la acción: Etiquetar en Instagram
     c.font = '700 12px Montserrat';
     c.fillStyle = 'rgba(244, 240, 233, 0.85)';
     c.letterSpacing = '0.22em';
-    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1705);
+    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1652);
 
-    c.font = '800 28px Montserrat';
+    // 3. Handle Oficial @KOMPA.CR centrado
+    c.font = '900 34px Montserrat';
     c.fillStyle = PALETTE.meta;
     c.letterSpacing = '0.14em';
-    c.fillText('@KOMPA.CR 🇨🇷', 540, 1745);
+    c.fillText('@KOMPA.CR', 540, 1692);
+
+    // 4. Bandera oficial de Costa Rica y texto editorial centrado
+    drawCostaRicaBadge(c, 540, 1740);
 
     c.restore();
   }
