@@ -237,13 +237,14 @@
       liveBadge.classList.remove('hidden');
       cameraControls.classList.remove('hidden');
       capturedControls.classList.add('hidden');
-      editingTools.classList.add('opacity-40', 'pointer-events-none');
+      editingTools.classList.add('hidden');
     } catch (err) {
       console.warn('Cámara requiere permiso explícito:', err);
       isCameraActive = false;
       liveBadge.classList.add('hidden');
       cameraControls.classList.remove('hidden');
       capturedControls.classList.add('hidden');
+      editingTools.classList.add('hidden');
       showCameraPrompt();
       if (fromUserGesture) {
         showToast('Permiso de cámara denegado en tu navegador.', '⚠️');
@@ -404,7 +405,7 @@
     liveBadge.classList.add('hidden');
     cameraControls.classList.add('hidden');
     capturedControls.classList.remove('hidden');
-    editingTools.classList.remove('opacity-40', 'pointer-events-none');
+    editingTools.classList.remove('hidden');
     
     // Ocultar hint tras 3 segundos
     setTimeout(() => {
@@ -772,29 +773,34 @@
     drawLateralRouteSystem(c, PALETTE.meta, PALETTE.oceano, PALETTE.rosa);
 
     // --- FOOTER: ZONA INFERIOR (Y: 1560 - 1880) ---
-    // Slogan principal inferior
+    // 1. Slogan principal inferior
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.white;
-    c.font = '800 24px Montserrat';
+    c.font = '800 22px Montserrat';
     c.letterSpacing = '0.25em';
-    c.fillText('CREA TU PROPIA HISTORIA', 540, 1600);
+    c.fillText('CREA TU PROPIA HISTORIA', 540, 1605);
 
-    // Línea de ruta central inferior
-    drawCurvedRouteDivider(c, 540, 1630);
+    // 2. Llamado a la acción: Etiquetar en Instagram
+    c.font = '700 12px Montserrat';
+    c.fillStyle = 'rgba(244, 240, 233, 0.85)';
+    c.letterSpacing = '0.22em';
+    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1652);
 
-    // Handle Oficial @KOMPA.CR con bandera de Costa Rica
-    c.font = '800 30px Montserrat';
-    c.fillStyle = PALETTE.white;
-    c.letterSpacing = '0.12em';
-    c.fillText('@KOMPA.CR', 540, 1680);
+    // 3. Handle Oficial @KOMPA.CR
+    c.font = '900 34px Montserrat';
+    c.fillStyle = PALETTE.meta;
+    c.letterSpacing = '0.14em';
+    c.fillText('@KOMPA.CR', 540, 1692);
 
-    // Bandera oficial de Costa Rica y texto editorial
-    drawCostaRicaBadge(c, 540, 1725);
+    // 4. Bandera oficial de Costa Rica y texto editorial centrado
+    drawCostaRicaBadge(c, 540, 1740);
 
-    // Coordenadas geográficas oficiales de Costa Rica
+    // 5. Coordenadas geográficas oficiales de Costa Rica
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.metal;
     c.font = '600 12px Montserrat';
     c.letterSpacing = '0.2em';
-    c.fillText('9.7489° N, 83.7534° W · EDICIÓN 2026', 540, 1785);
+    c.fillText('9.7489° N, 83.7534° W · EDICIÓN 2026', 540, 1784);
 
     c.restore();
   }
@@ -828,22 +834,34 @@
     drawSportLateralTicks(c, PALETTE.meta, PALETTE.cumbre);
 
     // Footer Sport
+    // 1. Slogan deportivo
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.white;
-    c.font = '800 24px Montserrat';
-    c.letterSpacing = '0.2em';
-    c.fillText('DESAFÍA TUS LÍMITES', 540, 1600);
+    c.font = '800 22px Montserrat';
+    c.letterSpacing = '0.22em';
+    c.fillText('DESAFÍA TUS LÍMITES', 540, 1605);
 
-    c.font = '800 30px Montserrat';
+    // 2. Llamado a la acción: Etiquetar en Instagram
+    c.font = '700 12px Montserrat';
+    c.fillStyle = 'rgba(244, 240, 233, 0.85)';
+    c.letterSpacing = '0.22em';
+    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1652);
+
+    // 3. Handle Oficial @KOMPA.CR
+    c.font = '900 34px Montserrat';
     c.fillStyle = PALETTE.meta;
-    c.letterSpacing = '0.12em';
-    c.fillText('@KOMPA.CR', 540, 1660);
+    c.letterSpacing = '0.14em';
+    c.fillText('@KOMPA.CR', 540, 1692);
 
-    drawCostaRicaBadge(c, 540, 1715);
+    // 4. Bandera oficial de Costa Rica y texto editorial centrado
+    drawCostaRicaBadge(c, 540, 1740);
 
+    // 5. Subtítulo Sport
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.sand;
     c.font = '700 13px Montserrat';
-    c.letterSpacing = '0.25em';
-    c.fillText('RESISTENCIA · ALTITUD · VELOCIDAD', 540, 1775);
+    c.letterSpacing = '0.24em';
+    c.fillText('RESISTENCIA · ALTITUD · VELOCIDAD', 540, 1784);
 
     c.restore();
   }
@@ -873,22 +891,34 @@
     drawTopographicTicks(c, PALETTE.oceano, PALETTE.naturaleza);
 
     // Footer Travel
+    // 1. Slogan Travel
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.white;
-    c.font = '800 24px Montserrat';
-    c.letterSpacing = '0.2em';
-    c.fillText('CADA SENDERO ES TU HISTORIA', 540, 1600);
+    c.font = '800 22px Montserrat';
+    c.letterSpacing = '0.22em';
+    c.fillText('CADA SENDERO ES TU HISTORIA', 540, 1605);
 
-    c.font = '800 30px Montserrat';
-    c.fillStyle = PALETTE.white;
-    c.letterSpacing = '0.12em';
-    c.fillText('@KOMPA.CR', 540, 1660);
+    // 2. Llamado a la acción: Etiquetar en Instagram
+    c.font = '700 12px Montserrat';
+    c.fillStyle = 'rgba(244, 240, 233, 0.85)';
+    c.letterSpacing = '0.22em';
+    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1652);
 
-    drawCostaRicaBadge(c, 540, 1715);
+    // 3. Handle Oficial @KOMPA.CR
+    c.font = '900 34px Montserrat';
+    c.fillStyle = PALETTE.meta;
+    c.letterSpacing = '0.14em';
+    c.fillText('@KOMPA.CR', 540, 1692);
 
+    // 4. Bandera oficial de Costa Rica y texto editorial centrado
+    drawCostaRicaBadge(c, 540, 1740);
+
+    // 5. Subtítulo Travel
+    c.textAlign = 'center';
     c.fillStyle = PALETTE.sand;
     c.font = '600 12px Montserrat';
     c.letterSpacing = '0.22em';
-    c.fillText('OCÉANO PACÍFICO · CARIBE · VOLCANES', 540, 1775);
+    c.fillText('OCÉANO PACÍFICO · CARIBE · VOLCANES', 540, 1784);
 
     c.restore();
   }
@@ -925,14 +955,19 @@
 
     // Footer minimal
     c.fillStyle = PALETTE.white;
-    c.font = '800 24px Montserrat';
+    c.font = '800 22px Montserrat';
     c.letterSpacing = '0.25em';
-    c.fillText('CREA TU PROPIA HISTORIA', 540, 1680);
+    c.fillText('CREA TU PROPIA HISTORIA', 540, 1665);
 
-    c.font = '700 22px Montserrat';
-    c.fillStyle = PALETTE.sand;
-    c.letterSpacing = '0.15em';
-    c.fillText('@KOMPA.CR 🇨🇷', 540, 1730);
+    c.font = '700 12px Montserrat';
+    c.fillStyle = 'rgba(244, 240, 233, 0.85)';
+    c.letterSpacing = '0.22em';
+    c.fillText('ETIQUÉTANOS AQUÍ', 540, 1705);
+
+    c.font = '800 28px Montserrat';
+    c.fillStyle = PALETTE.meta;
+    c.letterSpacing = '0.14em';
+    c.fillText('@KOMPA.CR 🇨🇷', 540, 1745);
 
     c.restore();
   }
@@ -1084,54 +1119,52 @@
   }
 
   /**
-   * Bandera oficial de Costa Rica (Azul, Blanco, Rojo doble, Blanco, Azul)
-   * acompañada de la tipografía oficial.
+   * Bandera oficial de Costa Rica con tipografía oficial,
+   * matemáticamente centrada al píxel en la coordenada X dada.
    */
   function drawCostaRicaBadge(c, x, y) {
     c.save();
-    c.translate(x, y);
-
-    const flagW = 42;
-    const flagH = 26;
-    const flagX = -85;
-    const flagY = -13;
-
-    // Sombra de la bandera
-    c.shadowColor = 'rgba(0, 0, 0, 0.4)';
-    c.shadowBlur = 6;
-    c.shadowOffsetY = 2;
-
-    // Franjas oficiales de Costa Rica (proporciones 1:1:2:1:1)
+    c.font = '800 15px Montserrat';
+    c.letterSpacing = '0.22em';
+    const text = 'COSTA RICA';
+    const textWidth = c.measureText(text).width;
+    const flagW = 32;
+    const flagH = 20;
+    const gap = 12;
+    const totalW = flagW + gap + textWidth;
+    const startX = Math.round(x - totalW / 2);
+    const flagY = Math.round(y - flagH / 2);
     const stripeH = flagH / 6;
 
-    // 1. Azul
+    // Sombra sutil de la bandera
+    c.shadowColor = 'rgba(0, 0, 0, 0.4)';
+    c.shadowBlur = 4;
+    c.shadowOffsetY = 1;
+
+    // Franjas oficiales de Costa Rica (Azul, Blanco, Rojo, Blanco, Azul)
     c.fillStyle = '#002B7F';
     c.beginPath();
-    drawRoundedRectPath(c, flagX, flagY, flagW, flagH, 4);
+    drawRoundedRectPath(c, startX, flagY, flagW, flagH, 3);
     c.fill();
     c.shadowColor = 'transparent';
 
-    // 2. Blanco
     c.fillStyle = '#FFFFFF';
-    c.fillRect(flagX, flagY + stripeH, flagW, stripeH * 4);
+    c.fillRect(startX, flagY + stripeH, flagW, stripeH * 4);
 
-    // 3. Rojo (doble ancho central)
     c.fillStyle = '#CE1126';
-    c.fillRect(flagX, flagY + stripeH * 2, flagW, stripeH * 2);
+    c.fillRect(startX, flagY + stripeH * 2, flagW, stripeH * 2);
 
-    // Borde sutil de la bandera
     c.strokeStyle = 'rgba(255, 255, 255, 0.3)';
     c.lineWidth = 1;
     c.beginPath();
-    drawRoundedRectPath(c, flagX, flagY, flagW, flagH, 4);
+    drawRoundedRectPath(c, startX, flagY, flagW, flagH, 3);
     c.stroke();
 
     // Texto COSTA RICA
-    c.fillStyle = PALETTE.white;
-    c.font = '800 16px Montserrat';
-    c.letterSpacing = '0.22em';
+    c.fillStyle = PALETTE.sand;
     c.textAlign = 'left';
-    c.fillText('COSTA RICA', -32, 5);
+    c.textBaseline = 'middle';
+    c.fillText(text, startX + flagW + gap, y + 1);
 
     c.restore();
   }
