@@ -939,6 +939,7 @@
     // Marco exterior fino
     c.lineWidth = 2;
     c.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+    c.beginPath();
     drawRoundedRectPath(c, WINDOW_X, WINDOW_Y, WINDOW_W, WINDOW_H, WINDOW_RADIUS);
     c.stroke();
 
@@ -1403,14 +1404,16 @@
     borderGrad.addColorStop(0.5, PALETTE.oceano);
     borderGrad.addColorStop(1, PALETTE.rosa);
     qc.strokeStyle = borderGrad;
+    qc.beginPath();
     drawRoundedRectPath(qc, 18, 18, 564, 644, 28);
     qc.stroke();
 
     // Logo Oficial KOMPA (incluye isotipo, tipografía y claim oficial)
     drawKompaHeaderLogo(qc, 300, 105, 160);
 
-    // Tarjeta contenedora blanca para el QR
+    // Tarjeta contenedora blanca SOLO para el QR
     qc.fillStyle = '#FFFFFF';
+    qc.beginPath();
     drawRoundedRectPath(qc, 150, 195, 300, 300, 20);
     qc.fill();
 
@@ -1418,19 +1421,21 @@
     qc.drawImage(qrImg, 175, 220, 250, 250);
 
     // Instrucción inferior
+    qc.textAlign = 'center';
     qc.fillStyle = PALETTE.white;
     qc.font = '800 16px Montserrat';
     qc.letterSpacing = '0.15em';
     qc.fillText('ESCANEA Y TOMA TU FOTO', 300, 535);
 
     // URL y @KOMPA.CR
+    qc.textAlign = 'center';
     qc.fillStyle = PALETTE.metal;
     qc.font = '600 12px Montserrat';
     qc.letterSpacing = '0.12em';
-    qc.fillText(qrUrlInput.value.trim(), 300, 565);
+    qc.fillText(qrUrlInput.value.trim(), 300, 568);
 
-    // Costa Rica Badge
-    drawCostaRicaBadge(qc, 300, 615);
+    // Costa Rica Badge centrado
+    drawCostaRicaBadge(qc, 300, 618);
 
     // Descarga automática
     qrCard.toBlob((blob) => {
