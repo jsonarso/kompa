@@ -1284,11 +1284,10 @@
       // Verificar soporte de la Web Share API para archivos
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
-          await navigator.share({
-            files: [file],
-            title: 'KOMPA Costa Rica',
-            text: '¡Crea tu propia historia! @kompa.cr #kompacr'
-          });
+          // Compartir SOLO el archivo de imagen, sin título ni texto extra.
+          // Esto hace que iOS/Android muestren la hoja de compartir limpia
+          // con Instagram Stories como opción prioritaria.
+          await navigator.share({ files: [file] });
           showToast('¡Compartido con éxito!', '🎉');
         } catch (err) {
           if (err.name !== 'AbortError') {
